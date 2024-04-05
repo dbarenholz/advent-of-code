@@ -3,7 +3,7 @@ import Data.List.NonEmpty (NonEmpty ((:|)), (<|))
 import qualified Data.List.NonEmpty as NE
 
 main :: IO ()
-main = interact (formatOutput . solve . parseInput)
+main = interact (formatOutput . solve2 . parseInput)
 
 -- helpers for parsing
 splitOn' :: Char -> String -> NonEmpty String
@@ -12,18 +12,27 @@ splitOn' sep s = case s of { [] -> "" :| []; (part : remainder) -> if part == se
 splitOn :: Char -> String -> [String]
 splitOn sep s = NE.toList (splitOn' sep s)
 
--- Define input and output here
-type Input  = _
-type Output = _
+formatOutput :: Int -> String
+formatOutput solution = show solution ++ "\n"
 
-formatOutput :: Output -> String
-formatOutput solution = _ ++ "\n"
+parseInput :: String -> String
+parseInput rawInput = head $ lines rawInput
 
-parseInput :: String -> Input
-parseInput rawInput = map read (splitOn ',' rawInput)
+-- Idea: replace each '(' with 1 and each ')' with -1, then sum the list
+solve1 :: String -> Int
+solve1 s = sum $ map replaceChar s
 
-parseTestcases :: String -> [Input]
-parseTestcases rawInput = map parseInput tail (lines rawInput)
+replaceChar :: Char -> Int
+replaceChar '(' = 1
+replaceChar ')' = -1
+replaceChar _ = 0
 
-solve :: Input -> Output
-solve tc = map (\v -> v + 1) tc
+-- Need to keep track of the first occurence something happens
+-- So we have to "loop"
+solve2 :: String -> Int
+solve2 s = go 0 (map replaceChar s) 0
+
+go :: Int -> [Int] -> Int -> Int
+go i _ (-1) = i
+go i (x:xs) sum = go (i + 1) xs (sum + x)
+go _ [] _ = -1
