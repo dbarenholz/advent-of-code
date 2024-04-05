@@ -10,6 +10,7 @@ Eventually, it will contain solutions for _all_ problems.
 
 ### 2015
 
-* Day 3: current
+* Day 4: current
+* [Day 3](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/03.hs>)
 * [Day 2](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/02.hs>)
 * [Day 1](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/01.hs>)
