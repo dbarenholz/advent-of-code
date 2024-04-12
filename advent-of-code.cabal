@@ -13,5 +13,6 @@ executable working
   hs-source-dirs:   src
   build-depends:
     base,
-    MissingH
+    MissingH,
+    containers
 
