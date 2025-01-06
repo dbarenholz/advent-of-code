@@ -25,6 +25,7 @@ Eventually, it will contain solutions for _all_ problems.
 
 ### 2015
 
+* Day 10 in [haskell](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/10.hs>)
 * Day 9 in [haskell](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/09.hs>)
 * Day 8 in [haskell](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/08.hs>)
 * Day 7 in [java](<https://github.com/dbarenholz/advent-of-code/blob/main/src/2015/07.java>)
